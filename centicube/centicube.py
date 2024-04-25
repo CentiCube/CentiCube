@@ -15,6 +15,14 @@ from .view.mainUI import Ui_MainWindow
 
 # from view.mainView import *
 
+loadingPercent = 0
+
+class MainWindow(QMainWindow):
+    def __init__(self) -> None:
+        QMainWindow.__init__(self)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
 class loadingUI(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -24,13 +32,33 @@ class loadingUI(QMainWindow):
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         
-        self.show()
+        # self.ui.loadingBar.setTextVisible(False)
+        
+        self.shadow = QGraphicsDropShadowEffect(self)
+        self.shadow.setBlurRadius(20)
+        self.shadow.setXOffset(0)
+        self.shadow.setYOffset(0)
+        self.shadow.setColor(QColor(0, 0, 0, 60))
+        self.ui.dropShadow.setGraphicsEffect(self.shadow)
 
-class MainWindow(QMainWindow):
-    def __init__(self) -> None:
-        super().__init__()
+        self.timer = QtCore.QTimer()
+        self.timer.timeout.connect(self.progress)
+        self.timer.start(35)
         
         self.show()
+    def progress(self):
+        global loadingPercent
+        
+        self.ui.loadingBar.setValue(loadingPercent)   
+        
+        if loadingPercent > 100:
+            self.timer.stop()
+            
+            self.main = MainWindow()
+            self.main.show()
+            
+            self.close()
+        loadingPercent += 1
 
 def main() -> None:
     App = QApplication(sys.argv)
