@@ -1,4 +1,4 @@
-from centicube import *
+from centicube.centicube import *
 
 if __name__ == '__main__':
-    pass
+    main()
