@@ -9,12 +9,6 @@ from PySide6.QtWidgets import *
 from .view.loadingUI import Ui_SlashScreen
 from .view.mainUI import Ui_MainWindow
 
-# from core import *
-# from model import *
-# from view import *
-
-# from view.mainView import *
-
 loadingPercent = 0
 
 
@@ -23,6 +17,9 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        
+        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
 
 
 class loadingUI(QMainWindow):
