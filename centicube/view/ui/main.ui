@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
-    <height>540</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>640</width>
-    <height>360</height>
+    <width>960</width>
+    <height>540</height>
    </size>
   </property>
   <property name="font">
@@ -25,20 +25,48 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: none;
-border-style: none;
-border-radius: 0px;
-color: rgb(255, 255, 255);
-text-align: center;
-padding: 0px;
-margin: 0px;
-spacing: 0px;</string>
+   <string notr="true"/>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
+  <widget class="QWidget" name="Layout">
+   <property name="minimumSize">
+    <size>
+     <width>960</width>
+     <height>540</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">* {
+	border-style: none;
+	color: rgb(255, 255, 255);
+}
+
+QWidget {
+	background-color: none;
+}
+
+#backgroundApp {
+	background-color: rgb(20, 40, 80);
+}
+
+#appLogo {
+	background-image: url(:/logo/images/CentiCube40.png);
+	background-position: center;
+	background-repeat: none;
+}
+
+#topMenu .QPushButton:hover {
+	background-color: rgb(255, 255, 52);
+}
+
+#windowButton &gt; QPushButton {
+	background-color: transparent;
+}
+
+#windowButton &gt; QPushButton:hover {
+	background-color: rgb(200, 0, 0);
+}</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -51,26 +79,16 @@ spacing: 0px;</string>
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item>
-     <widget class="QFrame" name="Header">
+    <item row="0" column="0">
+     <widget class="QFrame" name="backgroundApp">
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>50</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>50</height>
+        <width>960</width>
+        <height>540</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">QFrame {
-	border-bottom: 0px solid rgb(100, 100, 100);
-	background-color: rgb(50, 165, 230);
-	color: rgb(255, 255, 255);
-}</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -78,10 +96,7 @@ spacing: 0px;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="HeaderLayout">
-       <property name="spacing">
-        <number>5</number>
-       </property>
+      <layout class="QGridLayout" name="gridLayout_2">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -94,12 +109,21 @@ spacing: 0px;</string>
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item>
-        <widget class="QFrame" name="CentiCube">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="0" column="0" rowspan="2">
+        <widget class="QFrame" name="sideBar">
          <property name="minimumSize">
           <size>
-           <width>150</width>
-           <height>50</height>
+           <width>60</width>
+           <height>540</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>60</width>
+           <height>16777215</height>
           </size>
          </property>
          <property name="frameShape">
@@ -108,9 +132,9 @@ spacing: 0px;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
           <property name="spacing">
-           <number>5</number>
+           <number>0</number>
           </property>
           <property name="leftMargin">
            <number>0</number>
@@ -125,77 +149,292 @@ spacing: 0px;</string>
            <number>0</number>
           </property>
           <item>
-           <widget class="QLabel" name="appLogo">
+           <widget class="QFrame" name="appLogo">
             <property name="minimumSize">
              <size>
-              <width>50</width>
+              <width>60</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>50</width>
+              <width>60</width>
               <height>50</height>
              </size>
             </property>
-            <property name="text">
-             <string/>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="pixmap">
-             <pixmap resource="../resources/resources.qrc">:/Logo/images/CentiCube.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="appName">
-            <property name="font">
-             <font>
-              <family>Bahnschrift</family>
-              <pointsize>14</pointsize>
-              <bold>true</bold>
-             </font>
+           <widget class="QFrame" name="toggleMenu">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>50</height>
+             </size>
             </property>
-            <property name="text">
-             <string>CentiCube</string>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>50</height>
+             </size>
             </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="toggleSidebar">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/cil-menu.png</normaloff>:/icons/icons/cil-menu.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>16</width>
+                 <height>16</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="topMenu">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="dashboardButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/cil-home.png</normaloff>:/icons/icons/cil-home.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="serverButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/cil-layers.png</normaloff>:/icons/icons/cil-layers.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>467</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QFrame" name="bottomMenu">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="settingButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/cil-settings.png</normaloff>:/icons/icons/cil-settings.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item>
-        <spacer name="spacerL">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>100</width>
-           <height>50</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QFrame" name="Tabs">
+       <item row="0" column="1">
+        <widget class="QFrame" name="topBar">
          <property name="minimumSize">
           <size>
-           <width>360</width>
+           <width>860</width>
            <height>50</height>
           </size>
          </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-	background-color: none;
-	border-style: none;
-}
-
-QPushButton:checked {
-	border-bottom: 2px solid rgb(255, 255, 255);
-}</string>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -205,7 +444,7 @@ QPushButton:checked {
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <property name="spacing">
-           <number>5</number>
+           <number>0</number>
           </property>
           <property name="leftMargin">
            <number>0</number>
@@ -220,331 +459,375 @@ QPushButton:checked {
            <number>0</number>
           </property>
           <item>
-           <widget class="QPushButton" name="dashboardButton">
-            <property name="minimumSize">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>120</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Bahnschrift SemiLight</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">text-align: center;
-border-style: none;</string>
-            </property>
-            <property name="text">
-             <string>Dashboard</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
+              <width>1067</width>
               <height>20</height>
              </size>
             </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
+           </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="serverButton">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Bahnschrift SemiLight</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="autoFillBackground">
-             <bool>false</bool>
-            </property>
+           <widget class="QFrame" name="windowButton">
             <property name="styleSheet">
-             <string notr="true">text-align: center;
-border-style: none;</string>
+             <string notr="true"/>
             </property>
-            <property name="text">
-             <string>Servers</string>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
             </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
             </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="settingButton">
-            <property name="minimumSize">
-             <size>
-              <width>120</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Bahnschrift SemiLight</family>
-              <pointsize>12</pointsize>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">text-align: center;
-border-style: none;</string>
-            </property>
-            <property name="text">
-             <string>Settings</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="minimizeButton">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/icon_minimize.png</normaloff>:/icons/icons/icon_minimize.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="maximizeButton">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/icon_maximize.png</normaloff>:/icons/icons/icon_maximize.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="closeButton">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/icon_close.png</normaloff>:/icons/icons/icon_close.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item>
-        <spacer name="spacerR">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
+       <item row="1" column="1">
+        <widget class="QStackedWidget" name="contentPresenter">
+         <property name="minimumSize">
           <size>
-           <width>100</width>
-           <height>50</height>
+           <width>860</width>
+           <height>510</height>
           </size>
          </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QFrame" name="Windows">
          <property name="styleSheet">
-          <string notr="true">QPushButton {
-	background-color: none;
-}
-
-QPushButton:hover {
-	background-color: rgb(0, 145, 225);
+          <string notr="true">* {
+	background-color: rgb(39, 73, 109);
 }</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
+          <enum>QFrame::Sunken</enum>
          </property>
-         <layout class="QHBoxLayout" name="WindowButton">
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="minButton">
+         <widget class="QWidget" name="defaultFrame"/>
+         <widget class="QWidget" name="dashboardFrame">
+          <widget class="QFrame" name="info">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1220</width>
+             <height>150</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>900</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+          <widget class="QFrame" name="list">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>150</y>
+             <width>1220</width>
+             <height>510</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>900</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="serverFrame">
+          <widget class="QScrollArea" name="scrollArea">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1220</width>
+             <height>50</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>900</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="verticalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAsNeeded</enum>
+           </property>
+           <property name="sizeAdjustPolicy">
+            <enum>QAbstractScrollArea::AdjustIgnored</enum>
+           </property>
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="serverScroll">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1220</width>
+              <height>50</height>
+             </rect>
+            </property>
+            <widget class="QFrame" name="newServer">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>150</width>
+               <height>50</height>
+              </rect>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>100</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="newServerButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>100</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>New Server</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../resources/resources.qrc">
+                  <normaloff>:/icons/icons/cil-plus.png</normaloff>:/icons/icons/cil-plus.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QFrame" name="defaultServer">
+             <property name="geometry">
+              <rect>
+               <x>150</x>
+               <y>0</y>
+               <width>250</width>
+               <height>50</height>
+              </rect>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QLabel" name="label">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>200</width>
+                <height>50</height>
+               </rect>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+          </widget>
+          <widget class="QStackedWidget" name="stackedWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>50</y>
+             <width>1220</width>
+             <height>500</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>900</width>
+             <height>480</height>
+            </size>
+           </property>
+           <widget class="QWidget" name="page">
             <property name="minimumSize">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>900</width>
+              <height>440</height>
              </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../resources/resources.qrc">
-              <normaloff>:/Icons/icons/Minimize_White.png</normaloff>:/Icons/icons/Minimize_White.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
             </property>
            </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="maxButton">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../resources/resources.qrc">
-              <normaloff>:/Icons/icons/Maximize_White.png</normaloff>:/Icons/icons/Maximize_White.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="closeButton">
-            <property name="minimumSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton:hover {
-	background-color: rgb(255, 45, 45);
-}</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../resources/resources.qrc">
-              <normaloff>:/Icons/icons/Close_White.png</normaloff>:/Icons/icons/Close_White.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
+           <widget class="QWidget" name="page_2"/>
+          </widget>
+         </widget>
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QStackedWidget" name="Pages">
-      <widget class="QWidget" name="dashboardPage">
-       <widget class="QLabel" name="dashboardLabel">
-        <property name="geometry">
-         <rect>
-          <x>320</x>
-          <y>180</y>
-          <width>341</width>
-          <height>111</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Bahnschrift</family>
-          <pointsize>40</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Dashboard</string>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="serverPage">
-       <widget class="QLabel" name="serverLabel">
-        <property name="geometry">
-         <rect>
-          <x>320</x>
-          <y>180</y>
-          <width>341</width>
-          <height>111</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Bahnschrift</family>
-          <pointsize>40</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Server Page</string>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </widget>
      </widget>
     </item>
    </layout>

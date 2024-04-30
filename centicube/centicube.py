@@ -18,9 +18,22 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
-        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.maximizeState = False
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        
+        self.ui.closeButton.clicked.connect(lambda: self.close())
+        self.ui.maxButton.clicked.connect(lambda: self.maximizeWindow())
+        self.ui.minButton.clicked.connect(lambda: self.showMinimized())
+        print(self.showMaximized)
 
+    def maximizeWindow(self):
+        if self.maximizeState:
+            self.showNormal()
+            self.maximizeState = False
+        else:
+            self.showMaximized()
+            self.maximizeState = True
 
 class loadingUI(QMainWindow):
     def __init__(self):
